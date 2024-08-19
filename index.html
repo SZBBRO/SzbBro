@@ -186,7 +186,6 @@
             <ul>
                 <li><a href="#" onclick="showSection('home')">Home</a></li>
                 <li><a href="#" onclick="showSection('games')">Games</a></li>
-                <li><a href="#" onclick="showSection('addons')">Addons</a></li>
             </ul>
         </nav>
     </header>
@@ -199,32 +198,18 @@
         <section id="games" class="categories" style="display: none;">
             <h2>All Games</h2>
             <div class="category-grid">
-                <div class="category" data-game="minecraft compressed">
+                <div class="category" data-game="minecraft 1.21.2.02">
                     <img src="https://i.im.ge/2024/07/28/VJDz9S.20240728-074825.png" alt="Minecraft Compressed">
-                    <h3>Minecraft Compressed</h3>
+                    <h3>Minecraft 1.21.2.02</h3>
                 </div>
-                <div class="category" data-game="minecraft patched">
+                <div class="category" data-game="minecraft 1.21.2.02 patched">
                     <img src="https://i.im.ge/2024/07/28/VJURnq.20240728-084855.png" alt="Minecraft Patched">
-                    <h3>Minecraft Patched</h3>
+                    <h3>Minecraft 1.21.2.02 Patched</h3>
                 </div>
-                <div class="category" data-game="minecraft original">
-                    <img src="https://i.im.ge/2024/07/28/VJU5rJ.20240728-083634.png" alt="Minecraft Original">
-                    <h3>Minecraft Original</h3>
-                </div>
-            </div>
-        </section>
-        <section id="addons" class="categories" style="display: none;">
-            <h2>All Addons</h2>
-            <div class="category-grid">
-                <div class="category" data-addon="newb x future">
-                    <img src="https://i.im.ge/2024/07/31/VBzL3p.20240727-133507.png" alt="Newb x Future">
-                    <h3>Newb x Future</h3>
-                </div>
-                <div class="category" data-addon="solar shader">
-                    <img src="https://i.im.ge/2024/07/31/VBzqFY.20240727-194303.png" alt="Solar Shader">
-                    <h3>Solar Shader</h3>
-                </div>
-            </div>
+               <div class="category" data-game="minecraft 1.21.21.01">
+                    <img src="https://i.ibb.co/nrP96Gd/20240817-150647.png" alt="Minecraft 1.21.21.01">
+                    <h3>Minecraft 1.21.21.01</h3>
+                </div> 
         </section>
         <section id="game-details" class="game-details" style="display: none;">
             <h2 id="game-title"></h2>
@@ -255,11 +240,10 @@
         }
 
         function showSection(sectionId) {
-            document.getElementById('home').style.display = sectionId === 'home' ? 'block' : 'none';
-            document.getElementById('games').style.display = sectionId === 'games' ? 'block' : 'none';
-            document.getElementById('addons').style.display = sectionId === 'addons' ? 'block' : 'none';
-            document.getElementById('game-details').style.display = sectionId === 'game-details' ? 'block' : 'none';
-        }
+    document.getElementById('home').style.display = sectionId === 'home' ? 'block' : 'none';
+    document.getElementById('games').style.display = sectionId === 'games' ? 'block' : 'none';
+    document.getElementById('game-details').style.display = sectionId === 'game-details' ? 'block' : 'none';
+}
 
         document.querySelectorAll('.category').forEach(category => {
             category.addEventListener('click', () => {
@@ -273,16 +257,12 @@
 
         function getGameLink(gameTitle) {
             switch (gameTitle) {
-                case 'Minecraft Compressed':
+                case 'Minecraft 1.21.2.02':
                     return 'https://www.mediafire.com/file/i62glvb4g6jmla3/minecraft-1-21-2-02-compressed-SZB_BRO.apk/file';
-                case 'Minecraft Patched':
+                case 'Minecraft 1.21.2.02 Patched':
                     return 'https://www.mediafire.com/file/jagopajsvxymy8x/minecraft-1-21-2-02-Patched-SZB_BRO.apk/file';
-                case 'Minecraft Original':
-                    return 'https://www.mediafire.com/file/hl4bmhza9vneg4j/minecraft-1-21-2-02-orignal-SZB_BRO.apk/file';
-                case 'Newb x Future':
-                    return 'https://www.mediafire.com/file/g0c5kms2jt08xpd/Android-Newb-x-Future-v16.mcpack/file';
-                case 'Solar Shader':
-                    return 'https://www.mediafire.com/file/ov5gy7ks0rawh7q/Solar-Shader-MCPE-Android-1.21.mcpack/file';
+                case 'Minecraft 1.21.21.01':
+                    return 'https://www.mediafire.com/file/ortgxeafrlp5nx7/MINECRAFT_1_21_21_01_OFFICIAL_BY_SZB_BRO.apk/file';
                 default:
                     return '#';
             }
