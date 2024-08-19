@@ -28,6 +28,7 @@
         <p>&copy; 2024 SZB BRO. All rights reserved.</p>
     </footer>
     <script>
+        // Extract game query parameter from URL
         const params = new URLSearchParams(window.location.search);
         const game = params.get('game');
         const titleMap = {
@@ -51,8 +52,16 @@
 
         if (game) {
             const gameTitle = titleMap[game];
-            document.getElementById('game-title').innerText = gameTitle;
-            document.getElementById('download-link').href = getGameLink(gameTitle);
+            if (gameTitle) {
+                document.getElementById('game-title').innerText = gameTitle;
+                document.getElementById('download-link').href = getGameLink(gameTitle);
+            } else {
+                document.getElementById('game-title').innerText = 'Game not found';
+                document.getElementById('download-link').href = '#';
+            }
+        } else {
+            document.getElementById('game-title').innerText = 'No game specified';
+            document.getElementById('download-link').href = '#';
         }
 
         function goBack() {
