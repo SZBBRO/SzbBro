@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SZB BRO - Download</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="https://i.im.ge/2024/07/28/VJOkrK.IMG-20240727-WA0016.jpeg" alt="SZB BRO Logo" class="logo">
+        <h1>SZB BRO</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="game-details">
+            <h2 id="game-title"></h2>
+            <button id="download-btn"><a href="#" target="_blank" id="download-link">Download</a></button>
+            <button onclick="goBack()">Back to Games</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 SZB BRO. All rights reserved.</p>
+    </footer>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const game = params.get('game');
+        const titleMap = {
+            'minecraft-1-21-2-02': 'Minecraft 1.21.2.02',
+            'minecraft-1-21-2-02-patched': 'Minecraft 1.21.2.02 Patched',
+            'minecraft-1-21-21-01': 'Minecraft 1.21.21.01'
+        };
+
+        function getGameLink(gameTitle) {
+            switch (gameTitle) {
+                case 'Minecraft 1.21.2.02':
+                    return 'https://www.mediafire.com/file/i62glvb4g6jmla3/minecraft-1-21-2-02-compressed-SZB_BRO.apk/file';
+                case 'Minecraft 1.21.2.02 Patched':
+                    return 'https://www.mediafire.com/file/jagopajsvxymy8x/minecraft-1-21-2-02-Patched-SZB_BRO.apk/file';
+                case 'Minecraft 1.21.21.01':
+                    return 'https://www.mediafire.com/file/ortgxeafrlp5nx7/MINECRAFT_1_21_21_01_OFFICIAL_BY_SZB_BRO.apk/file';
+                default:
+                    return '#';
+            }
+        }
+
+        if (game) {
+            const gameTitle = titleMap[game];
+            document.getElementById('game-title').innerText = gameTitle;
+            document.getElementById('download-link').href = getGameLink(gameTitle);
+        }
+
+        function goBack() {
+            window.location.href = 'games.html';
+        }
+    </script>
+</body>
+</html>
