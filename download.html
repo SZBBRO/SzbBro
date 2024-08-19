@@ -20,6 +20,7 @@
     <main>
         <section class="game-details">
             <h2 id="game-title"></h2>
+            <img id="game-image" src="" alt="Game Image" style="max-width: 100%; height: auto;">
             <button id="download-btn"><a href="#" target="_blank" id="download-link">Download</a></button>
             <button onclick="goBack()">Back to Games</button>
         </section>
@@ -32,35 +33,37 @@
         const params = new URLSearchParams(window.location.search);
         const game = params.get('game');
         const titleMap = {
-            'minecraft-1-21-2-02': 'Minecraft 1.21.2.02',
-            'minecraft-1-21-2-02-patched': 'Minecraft 1.21.2.02 Patched',
-            'minecraft-1-21-21-01': 'Minecraft 1.21.21.01'
+            'minecraft-1-21-2-02': {
+                title: 'Minecraft 1.21.2.02',
+                image: 'https://i.im.ge/2024/07/28/VJDz9S.20240728-074825.png',
+                link: 'https://www.mediafire.com/file/i62glvb4g6jmla3/minecraft-1-21-2-02-compressed-SZB_BRO.apk/file'
+            },
+            'minecraft-1-21-2-02-patched': {
+                title: 'Minecraft 1.21.2.02 Patched',
+                image: 'https://i.im.ge/2024/07/28/VJURnq.20240728-084855.png',
+                link: 'https://www.mediafire.com/file/jagopajsvxymy8x/minecraft-1-21-2-02-Patched-SZB_BRO.apk/file'
+            },
+            'minecraft-1-21-21-01': {
+                title: 'Minecraft 1.21.21.01',
+                image: 'https://i.ibb.co/nrP96Gd/20240817-150647.png',
+                link: 'https://www.mediafire.com/file/ortgxeafrlp5nx7/MINECRAFT_1_21_21_01_OFFICIAL_BY_SZB_BRO.apk/file'
+            }
         };
 
-        function getGameLink(gameTitle) {
-            switch (gameTitle) {
-                case 'Minecraft 1.21.2.02':
-                    return 'https://www.mediafire.com/file/i62glvb4g6jmla3/minecraft-1-21-2-02-compressed-SZB_BRO.apk/file';
-                case 'Minecraft 1.21.2.02 Patched':
-                    return 'https://www.mediafire.com/file/jagopajsvxymy8x/minecraft-1-21-2-02-Patched-SZB_BRO.apk/file';
-                case 'Minecraft 1.21.21.01':
-                    return 'https://www.mediafire.com/file/ortgxeafrlp5nx7/MINECRAFT_1_21_21_01_OFFICIAL_BY_SZB_BRO.apk/file';
-                default:
-                    return '#';
-            }
-        }
-
         if (game) {
-            const gameTitle = titleMap[game];
-            if (gameTitle) {
-                document.getElementById('game-title').innerText = gameTitle;
-                document.getElementById('download-link').href = getGameLink(gameTitle);
+            const gameDetails = titleMap[game];
+            if (gameDetails) {
+                document.getElementById('game-title').innerText = gameDetails.title;
+                document.getElementById('game-image').src = gameDetails.image;
+                document.getElementById('download-link').href = gameDetails.link;
             } else {
                 document.getElementById('game-title').innerText = 'Game not found';
+                document.getElementById('game-image').src = '';
                 document.getElementById('download-link').href = '#';
             }
         } else {
             document.getElementById('game-title').innerText = 'No game specified';
+            document.getElementById('game-image').src = '';
             document.getElementById('download-link').href = '#';
         }
 
